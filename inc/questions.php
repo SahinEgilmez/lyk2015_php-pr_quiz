@@ -1,7 +1,15 @@
-function getAllQuestions($path = ""){
-    $doWeHaveData = false;
-    $questionsDataFilePath = $path. "data/questions.txt";
+<?php
 
+function getAllQuestions(){
+    $doWeHaveData = false;
+
+    // data dosyası varsa soruları oradan oku
+    if($_POST['question']){
+        $questionsDataFilePath = "../data/questions.txt";
+
+    }else {
+        $questionsDataFilePath = "data/questions.txt";
+    }
 
     if(file_exists($questionsDataFilePath)) {
         $questionsDataFile = fopen($questionsDataFilePath, "r");
